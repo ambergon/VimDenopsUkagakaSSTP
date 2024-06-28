@@ -29,7 +29,7 @@ augroup VimDenopsUkagakaSSTP
     " Denops側で処理してくれるのだろう。
     " autocmd User DenopsPluginPost:VimDenopsUkagakaSSTP call denops#notify( 'VimDenopsUkagakaSSTP' , 'init', [] )
     if !exists( 'g:VimDenopsUkagakaSSTP_Ghost' )
-        let g:VimDenopsUkagakaSSTP_Ghost = 'MANA'
+        let g:VimDenopsUkagakaSSTP_Ghost = ''
     endif
     autocmd User DenopsPluginPost:VimDenopsUkagakaSSTP call denops#notify( 'VimDenopsUkagakaSSTP' , 'init', [ g:VimDenopsUkagakaSSTP_Ghost ] )
 augroup END
