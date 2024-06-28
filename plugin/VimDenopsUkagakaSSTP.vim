@@ -28,7 +28,7 @@ augroup VimDenopsUkagakaSSTP
     autocmd!
     " User は自動実行されることがないコマンド。
     " Denops側で処理してくれるのだろう。
-    autocmd User DenopsPluginPost:VimDenopsUkagakaSSTP call denops#notify( 'VimDenopsUkagakaSSTP' , 'init', [] )
+    autocmd User DenopsPluginPost:VimDenopsUkagakaSSTP call denops#notify( 'VimDenopsUkagakaSSTP' , 'init', [ "MANA" ] )
 augroup END
 
 
