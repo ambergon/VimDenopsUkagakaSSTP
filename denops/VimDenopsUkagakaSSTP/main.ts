@@ -4,8 +4,6 @@
 
 
 
-
-
 import type { Entrypoint } from "https://deno.land/x/denops_std@v6.5.0/mod.ts";
 import { assert, is } from "https://deno.land/x/unknownutil@v3.18.1/mod.ts";
 
@@ -14,10 +12,15 @@ export const main: Entrypoint = (denops) => {
     //
     // APIs are invokable from Vim script through `denops#request()` or `denops#notify()`.
     // Refer to `:help denops#request()` or `:help denops#notify()` for more details.
+
+    var Ghost = ""
     denops.dispatcher = {
         // 初期化関数
         async init( GhostName ) {
-            console.log( GhostName );
+            // console.log( GhostName );
+            if( GhostName != null && GhostName != "" ){
+                Ghost = GhostName;
+            }
             
             // プラグイン名が格納される。
             const { name } = denops;
@@ -35,8 +38,8 @@ export const main: Entrypoint = (denops) => {
         },
 
         Send( SakuraScript ){
-            console.log( "MANA" );
-            var Ghost = "MANA"
+            console.log( Ghost );
+            // var Ghost = "MANA"
             //var Ghost = "Ghostのお名前 sakura or kero "
             var Sender = "Mery"
             var sstpText =        "SEND SSTP/1.4\r\n";
@@ -44,7 +47,9 @@ export const main: Entrypoint = (denops) => {
             sstpText = sstpText + "Sender      : " + Sender                   + "\r\n"; 
             sstpText = sstpText + "Option      : nobreak"                     + "\r\n"; 
             sstpText = sstpText + "Charset     : UTF-8"                       + "\r\n"; 
-            sstpText = sstpText + "IfGhost     : " + Ghost                    + "\r\n"; 
+            if( Ghost != "" && Ghost != null ){
+                sstpText = sstpText + "IfGhost     : " + Ghost                    + "\r\n"; 
+            }
             //sstpText = sstpText + "Event       : OnText"                      + "\r\n"; 
             //sstpText = sstpText + "Reference0  : " + Sender                   + "\r\n"; 
             //sstpText = sstpText + "Reference1  : " + SakuraScript             + "\r\n"; 
