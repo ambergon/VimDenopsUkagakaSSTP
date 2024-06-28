@@ -20,7 +20,7 @@ export const main: Entrypoint = (denops) => {
             const { name } = denops;
             await denops.cmd(
                 // `command! -nargs=? DenopsHello call denops#request('プラグイン名(読み込むフォルダ名)', '呼び出す関数名', [<q-args>])`,
-                `command! -nargs=? DenopsHello call denops#request('${name}', 'hello', [<q-args>])`,
+                `command! -nargs=? DenopsSSTP call denops#request('${name}', 'hello', [<q-args>])`,
             );
         },
 
